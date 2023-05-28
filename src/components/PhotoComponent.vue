@@ -11,8 +11,8 @@
 <script setup lang="ts">
 import { toRefs } from 'vue';
 import { type Photo } from '../api/Catalog';
-import Tooltip from './Tooltip.vue';
-import Thumbnail from './Thumbnail.vue';
+import Tooltip from './TooltipComponent.vue';
+import Thumbnail from './ThumbnailComponent.vue';
 
 const props = defineProps<{
     photo: Photo,

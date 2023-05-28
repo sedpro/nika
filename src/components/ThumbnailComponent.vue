@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { computed, ref, toRefs } from 'vue';
 import { type Photo } from '../api/Catalog';
-import Modal from './Modal.vue';
+import Modal from './ModalComponent.vue';
 import { useStore } from 'vuex';
 
 const props = defineProps<{

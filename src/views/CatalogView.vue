@@ -1,6 +1,6 @@
 <template>
     <Suspense>
-        <div v-for="user in users" class="user_wrapper">
+        <div v-for="user in users" :key="user.id" class="user_wrapper">
             <UserComponent :user="user"></UserComponent>
         </div>
         <template #fallback>
@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Catalog, { type User} from '@/api/Catalog';
-import UserComponent from '../components/User.vue'
+import UserComponent from '../components/UserComponent.vue'
 
 const users = ref<User[]>([]);
 

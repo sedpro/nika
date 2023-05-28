@@ -4,14 +4,14 @@
         <span>{{ album.title }}</span>
     </div>
     <div class="photo_wrapper" v-if="album.expanded">
-        <PhotoComponent :full="false" v-for="photo in album.photos" :photo="photo"></PhotoComponent>
+        <PhotoComponent :full="false" v-for="photo in album.photos" :photo="photo" :key="photo.id"></PhotoComponent>
     </div>
 </template>
 
 <script setup lang="ts">
 import { toRefs } from 'vue';
 import Catalog, { type Album } from '../api/Catalog';
-import PhotoComponent from './Photo.vue';
+import PhotoComponent from './PhotoComponent.vue';
 
 const props = defineProps<{
     album: Album,

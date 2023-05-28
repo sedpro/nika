@@ -3,7 +3,7 @@
         <div class="circle" :class="{plus: !user.expanded, minus: user.expanded}" ></div>
         <span>{{ user.name }}</span>
     </div>
-    <div v-for="album in user.albums">
+    <div v-for="album in user.albums" :key="album.id">
         <AlbumComponent v-if="user.expanded" :album="album"></AlbumComponent>
     </div>
 </template>
@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { toRefs } from 'vue';
 import Catalog, { type User } from '../api/Catalog';
-import AlbumComponent from './Album.vue';
+import AlbumComponent from './AlbumComponent.vue';
 
 const props = defineProps<{
     user: User,

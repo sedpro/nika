@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Favourites from '@/views/Favourites.vue'
-import Catalog from '@/views/Catalog.vue'
+import Favourites from '@/views/FavouritesView.vue'
+import Catalog from '@/views/CatalogView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
