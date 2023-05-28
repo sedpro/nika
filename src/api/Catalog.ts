@@ -1,4 +1,4 @@
-import getFetch from "./Fetch";
+import getFetch from "./http";
 
 export type User = {
     id: number;

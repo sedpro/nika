@@ -1,17 +1,17 @@
 <template>
     <Tooltip :text="photo.title">
         <img :src="photo.thumbnailUrl" @click.self="photoClick()"/>
-        <div class="star gold" @click="starClick()"></div>
+        <div class="star" :class="{gold: isFavourite, grey: !isFavourite}" @click="starClick()"></div>
     </Tooltip>
     <Modal ref="modal" :url="photo.url"></Modal>
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs } from 'vue';
+import { computed, ref, toRefs } from 'vue';
 import { type Photo } from '../api/Catalog';
 import Modal from './Modal.vue';
 import Tooltip from './Tooltip.vue';
-import Favourites from '@/api/Favourites';
+import { useStore } from 'vuex';
 
 const props = defineProps<{
     photo: Photo,
@@ -19,16 +19,17 @@ const props = defineProps<{
 
 const { photo } = toRefs(props);
 
+const store = useStore();
+const isFavourite = computed(() => store.getters.isFavourite(photo.value.id));
+
 const modal = ref<typeof Modal>();
 const photoClick = async () => {
     modal.value?.openModal();
 }
 const starClick = async () => {
-    console.log('star clicked', photo.value);
-    Favourites.add(photo.value.id);
+    store.dispatch('toggle', photo.value.id);
 }
-// const l = Favourites.list();
-// console.log('l', l);
+
 </script>
 
 <style scoped>

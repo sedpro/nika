@@ -1,4 +1,4 @@
-import { APISettings } from './config';
+import { APISettings } from './http_config';
 
 export default async function getFetch (endpoint: string, params: {[key: string]: string} = {}) {
     const url = new URL(APISettings.baseURL + endpoint);
