@@ -25,6 +25,15 @@ body {
   background-color: #eef9ff;
 }
 
+.photo_wrapper {
+  padding: 20px calc((100% - 490px) / 2);
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: left;
+}
+
 svg {
   display: block;
   width: 20px;

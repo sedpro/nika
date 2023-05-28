@@ -4,7 +4,7 @@
         <span>{{ album.title }}</span>
     </div>
     <div class="photo_wrapper" v-if="album.expanded">
-        <PhotoComponent v-for="photo in album.photos" :photo="photo"></PhotoComponent>
+        <PhotoComponent :full="false" v-for="photo in album.photos" :photo="photo"></PhotoComponent>
     </div>
 </template>
 
@@ -30,13 +30,5 @@ const albumClick = async (album: Album) => {
 <style scoped>
 .album {
     padding-left: 60px;
-}
-.photo_wrapper {
-    padding: 20px calc((100% - 490px) / 2);
-    background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: left;
 }
 </style>
