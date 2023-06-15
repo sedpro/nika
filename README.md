@@ -1,5 +1,7 @@
 # nika test
 
+Test task. Details in ./test-nika.pdf
+
 ## Project Setup
 
 ```sh
